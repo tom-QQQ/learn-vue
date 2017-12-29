@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html xmlns:v-bind="http://www.w3.org/1999/xhtml" xmlns:v-on="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>test</title>
+    <script src="https://unpkg.com/vue"></script>
+  </head>
+
+  <style>
+    /*.class1{*/
+      /*background: transparent;*/
+      /*color: #000;*/
+    /*}*/
+    /**/
+    /*#default {*/
+      /*background: #444;*/
+      /*color: #eee;*/
+    /*}*/
+
+    .class1{
+      background: transparent;
+      color: #000;
+    }
+
+    a{
+      background: #444;
+      color: #eee;
+    }
+
+    .movieTitle {
+      font: bold 15px "Microsoft Yahei";
+      color: #000099;
+    }
+
+  </style>
+
+  <body>
+
+    <div id="app">
+      <div v="message"></div>
+    </div>
+
+    <div id="app-1">
+      <div v-if="seen">
+        <p v-html="message"></p>
+      </div>
+    </div>
+
+    <div id="app-2">
+      <!--v-bind:target用于在新标签页中打开链接-->
+      <a :href="url" v-bind:title="message" v-bind:target="target">
+        鼠标悬停几秒钟查看此处动态绑定的信息
+      </a>
+    </div>
+
+    <div id="app-3">
+      <p>{{ message }}</p>
+    </div>
+
+  <div id="app-4">
+    <label for="r1">修改颜色</label><input type="checkbox" v-model="class1" id="r1">
+    <br /> <br />
+    <a :class = "{'class1': class1}">
+      directiva v-bind:class
+    </a>
+    <br /> <br />
+  </div>
+
+  <div id="app-6">
+    {{5+5}}<br />
+    {{ok ? 'YES' : 'NO'}}<br />
+    {{ message.split('').reverse().join('')}}
+    <div :id="'list-' + id">菜鸟教程</div>
+  </div>
+
+  <div id="app-7">
+    <br />
+    <input v-model="message" placeholder="请输入要反转的内容">
+    <br />
+    <button @click="empty">清空内容</button>
+    <br />
+    <button @click="reverseMessage">反转字符串</button>
+
+    <p></p>
+  </div>
+
+  <div id="app-8">
+    <input v-model="message" placeholder="要首字母大写的单词">
+    <p>转换的结果为：{{ message | capitalize | capitalize2}}</p>
+    <br /> <br />
+  </div>
+
+  <div id="app-9">
+    <a href="https://www.google.com">
+      <p style="text-align: center">
+        <img src="./src/assets/doodle.gif">
+      </p>
+    </a>
+    <a :href="url" v-bind:target="target">
+      <p style="text-align: center">
+        <br/><br/>
+        <img src="./src/assets/miku.jpg" v-bind:title="message" style="width:100%; height:100%">
+      </p>
+    </a>
+  </div>
+
+  <div id="app-10">
+    <p v-if="seen">现在你看到我了</p>
+    <template v-if="ok">
+      <h1>菜鸟教程</h1>
+      <p>学的不仅是技术，更是梦想</p>
+    </template>
+  </div>
+
+  <div id="app-11">
+    <div v-if="Num > 0.7">
+      随机数 {{ Num }} 大于0.7
+    </div>
+    <div v-else-if="Num > 0.4">
+      随机数{{ Num }} 大于0.4
+    </div>
+    <div v-else>
+      随机数 {{ Num }} 小于或等于0.4
+    </div>
+  </div>
+
+    <p>We're currently showing <span class="movieTitle">The Aviator</span> and <span class="movieTitle">
+➝The Outlaw</span></p>
+
+    <div id="app-12">
+      <parent></parent>
+    </div>
+
+    <br/>
+
+  <div id="app-13">
+    <parent></parent>
+  </div>
+
+  <br/>
+
+  <div id="app-14">
+    <parent></parent>
+  </div>
+
+  <br/>
+
+  <div id="app-15">
+    <parent></parent>
+  </div>
+
+  <br/>
+
+  <div id="app-16">
+    <MyParent></MyParent>
+  </div>
+
+  </body>
+</html>
